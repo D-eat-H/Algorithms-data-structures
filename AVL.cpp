@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#define pb push_back 
-#define pop pop_back
 
 using namespace std;
 
