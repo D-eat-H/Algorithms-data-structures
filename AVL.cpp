@@ -23,7 +23,7 @@ int getBalance(Node* root){
 
 Node* leftRotate(Node* root){
     Node* b = root -> right;
-   	Node *b1 = b -> left;
+    Node* b1 = b -> left;
     
 	// Perform rotation
     b -> left = root;
@@ -57,8 +57,8 @@ Node* rightRotate(Node* root){
     return b;
 }
 
-return balanced(Node* node){
-	node -> height = 1 + max(getHeight(node -> left), getHeight(node -> right));
+Node* balanced(Node* node){
+    node -> height = 1 + max(getHeight(node -> left), getHeight(node -> right));
     int balance = getBalance(node);
     if(balance == 2){
     	if(getBalance(node -> left) >= 0) return rightRotate(node); // LL
@@ -91,25 +91,25 @@ Node* deletion(Node* node, int key){
 	if(node -> data > key) node -> left = deletion(node -> left, key);
 	else if(node -> data < key) node -> right = deletion(node -> right, key);
 	else{
-		if(node -> left == NULL || node -> right == NULL){ // 0 or 1 child case
-			Node *temp = node -> left ? node -> left : node -> right;
-            if (temp == NULL){ // no child case
-                temp = node;
-                node = NULL;
-            }
-            else // one child case
-            *node = *temp;
-            free(temp);
-		}else{ // 2 children case
-			Node* temp = minValueNode(node -> right);
-            node -> data = temp -> data;
-            node -> right = deletion(node -> right, node -> data);
-		}
+	    if(node -> left == NULL || node -> right == NULL){ // 0 or 1 child case
+		Node *temp = node -> left ? node -> left : node -> right;
+            	if (temp == NULL){ // no child case
+                    temp = node;
+                    node = NULL;
+            	}
+            	else // one child case
+            	*node = *temp;
+            	free(temp);
+	    }else{ // 2 children case
+		Node* temp = minValueNode(node -> right);
+                node -> data = temp -> data;
+                node -> right = deletion(node -> right, node -> data);
+	    }
 	}
 	if(!node) return node;
 	return balanced(node);
 }
 
 int main(){
-	
+    return 0;
 }
