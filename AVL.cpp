@@ -14,7 +14,7 @@ struct Node{
 };
 
 int getHeight(Node* n){
-	return n != NULL ? n -> height : 0;
+    return n != NULL ? n -> height : 0;
 }   
 
 int getBalance(Node* root){
